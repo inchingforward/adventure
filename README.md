@@ -1,6 +1,7 @@
 # adventure
 
-A web-based Choose Your Own Adventure engine.
+A web-based Choose Your Own Adventure engine.  A working version should be 
+available [soon](http://adventure.mikejanger.net).
 
 ## License
 
