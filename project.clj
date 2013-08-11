@@ -11,7 +11,8 @@
                  [com.taoensso/tower "1.7.1"]
                  [markdown-clj "0.9.28"]
                  [postgresql/postgresql "9.1-901.jdbc4"]
-                 [korma "0.3.0-RC5"]]
+                 [korma "0.3.0-RC5"]
+                 [lobos "1.0.0-beta1"]]
   :plugins [[lein-ring "0.8.5"]]
   :ring {:handler adventure.handler/war-handler
          :init    adventure.handler/init

@@ -15,3 +15,11 @@
   (->>
     (io/slurp-resource filename)
     (md/md-to-html-string)))
+
+(defn env-var
+  "Returns an environment variable, or default if supplied."
+  ([name]
+   (env-var name nil))
+  ([name default]
+   (let [e (System/getenv name)]
+     (or e default))))
