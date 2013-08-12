@@ -1,11 +1,12 @@
 (ns adventure.routes.home
   (:use compojure.core)
   (:require [adventure.views.layout :as layout]
-            [adventure.util :as util]))
+            [adventure.util :as util]
+            [adventure.models.db :as db]))
 
 (defn home-page []
   (layout/render
-    "home.html" {:content (util/md->html "/md/docs.md")}))
+    "home.html" {:adventures (db/get-adventures)}))
 
 (defn about-page []
   (layout/render "about.html"))
