@@ -11,7 +11,7 @@
       <ul>
       {% for adventure in adventures %}
         <li>
-          <a href="#">{{ adventure.title }}</a>
+          <a href="/adventure/{{ adventure.id }}">{{ adventure.title }}</a>
           <h2>Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/yyyy" }}</h2>
         </li>
       {% endfor %}

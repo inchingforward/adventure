@@ -23,3 +23,10 @@
   []
   (select adventure
     (order :created_on :DESC)))
+
+(defn get-adventure
+  "Gets an adventure by its id."
+  [id]
+  (first
+    (select adventure
+      (where {:id id}))))

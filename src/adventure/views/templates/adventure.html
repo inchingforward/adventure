@@ -1,0 +1,11 @@
+{% extends "adventure/views/templates/base.html" %}
+
+{% block content %}
+
+<h1>{{ adventure.title }}</h1>
+
+<p>{{ adventure.details }}</p>
+
+<p class="adventure-small">Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/YYYY" }}</p>
+
+{% endblock %}
