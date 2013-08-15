@@ -32,3 +32,12 @@
                  (bigint :next_scene_id [:refer :scene :id] :not-null)
                  (text :title :not-null))))
   (down [] (drop (table :scene_nav))))
+
+(defmigration add-adventure-starting-scene
+  (up []
+      (alter :add (table :adventure
+                         (bigint :starting_scene_id [:refer :scene :id]))))
+  (down []
+        (alter :drop (table :adventure
+                            (column :starting_scene_id)))))
+

@@ -19,7 +19,7 @@
   (belongs-to scene))
 
 (defn get-adventures
-  "Returns all adventures."
+  "Gets all adventures."
   []
   (select adventure
     (order :created_on :DESC)))
@@ -30,3 +30,11 @@
   (first
     (select adventure
       (where {:id id}))))
+
+(defn get-scene
+  "Gets a scene for a given adventure."
+  [adventure-id scene-id]
+  (first
+   (select scene
+     (with scene-nav)
+     (where {:adventure_id adventure-id :id scene-id}))))

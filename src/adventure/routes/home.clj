@@ -14,8 +14,12 @@
 (defn adventure-page [id]
   (layout/render "adventure.html" {:adventure (db/get-adventure (read-string id))}))
 
+(defn scene-page [adventure-id scene-id]
+  (layout/render "adventure.html" {:scene (db/get-scene adventure-id scene-id)}))
+
 (defroutes home-routes
   (GET "/" [] (home-page))
   (GET "/about" [] (about-page))
-  (GET "/adventure/:id" [id] (adventure-page id)))
+  (GET "/adventure/:id" [id] (adventure-page id))
+  (GET "/adventure/:a/scene/:s" [adventure-id scene-id] (scene-page adventure-id scene-id)))
 
