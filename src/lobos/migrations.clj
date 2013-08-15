@@ -35,9 +35,11 @@
 
 (defmigration add-adventure-starting-scene
   (up []
-      (alter :add (table :adventure
-                         (bigint :starting_scene_id [:refer :scene :id]))))
+      (alter :add
+             (table :adventure
+                    (bigint :starting_scene_id [:refer :scene :id]))))
   (down []
-        (alter :drop (table :adventure
-                            (column :starting_scene_id)))))
+        (alter :drop
+               (table :adventure
+                      (column :starting_scene_id)))))
 

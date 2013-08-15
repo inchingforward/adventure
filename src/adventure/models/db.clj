@@ -32,7 +32,7 @@
       (where {:id id}))))
 
 (defn get-scene
-  "Gets a scene for a given adventure."
+  "Gets a scene and its scene_navs."
   [adventure-id scene-id]
   (first
    (select scene
