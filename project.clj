@@ -1,6 +1,6 @@
 (defproject adventure "0.1.0-SNAPSHOT"
   :description "A web-based Choose Your Own Adventure engine"
-  :url "http://adventure.mikejanger.net"
+  :url "http://adventure.inchingforward.com"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [lib-noir "0.6.6"]
                  [compojure "1.1.5"]
