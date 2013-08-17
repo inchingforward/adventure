@@ -16,7 +16,8 @@
   :plugins [[lein-ring "0.8.5"]]
   :ring {:handler adventure.handler/war-handler
          :init    adventure.handler/init
-         :destroy adventure.handler/destroy}
+         :destroy adventure.handler/destroy
+         :port    3030}
   :profiles
   {:production {:ring {:open-browser? false
                        :stacktraces?  false
