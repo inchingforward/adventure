@@ -6,7 +6,8 @@
 
 (defn home-page []
   (layout/render
-    "home.html" {:adventures (db/get-adventures)}))
+    "home.html" {:adventures (db/get-adventures)
+                 :analytics-id (util/env-var "ADV_ANALYTICS_ID")}))
 
 (defn about-page []
   (layout/render "about.html"))
