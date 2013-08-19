@@ -2,10 +2,13 @@
 
 {% block content %}
 
+<div id="adventure">
 <h1>{{ adventure.title }}</h1>
+<p class="adventure-small">Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/YYYY" }}</p>
 
 <p>{{ adventure.details }}</p>
 
-<p class="adventure-small">Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/YYYY" }}</p>
+<p><a href="/adventure/{{ adventure.id }}/scene/{{ adventure.starting_scene_id }}">Begin!</a></p>
+</div>
 
 {% endblock %}
