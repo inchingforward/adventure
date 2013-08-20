@@ -1,0 +1,16 @@
+{% extends "adventure/views/templates/base.html" %}
+
+{% block content %}
+
+<div id="scene">
+<h1>{{ scene.title }}</h1>
+
+<p>{{ scene.body }}</p>
+
+{% for nav in scene.scene_nav %}
+  <p><a href="/adventure/{{ scene.adventure_id }}/scene/{{ nav.next_scene_id }}">{{ nav.title }}</a></p>
+{% endfor %}
+
+</div>
+
+{% endblock %}
