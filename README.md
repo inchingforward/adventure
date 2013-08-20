@@ -1,6 +1,6 @@
 # adventure
 
-A web-based Choose Your Own Adventure engine.  A working version cound be found [here](http://adventure.inchingforward.com).
+A web-based story engine.  A working version cound be found [here](http://adventure.inchingforward.com).
 
 ## License
 
