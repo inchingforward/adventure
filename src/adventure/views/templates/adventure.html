@@ -1,14 +1,23 @@
-{% extends "adventure/views/templates/base.html" %}
+{% extends "adventure/views/templates/layout.html" %}
+
+{% block page_head %}
+<h1>{{ adventure.title }}</h1>
+{% endblock %}
+
+{% block page_meta %}
+<h6 id="slogan">Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/YYYY" }}</h6>
+{% endblock %}
 
 {% block content %}
+<div class="post">
+  <div class="post_inner">
+    <div class="the_post format-text">
+      {{ adventure.details|markdown }}
 
-<div id="adventure">
-<h1>{{ adventure.title }}</h1>
-<p class="adventure-small">Created by {{ adventure.author }} on {{ adventure.created_on|date:"MM/dd/YYYY" }}</p>
-
-{{ adventure.details|markdown }}
-
-<p><a href="/adventure/{{ adventure.id }}/scene/{{ adventure.starting_scene_id }}">Begin!</a></p>
+      <p><a href="/adventure/{{ adventure.id }}/scene/{{ adventure.starting_scene_id }}">Begin!</a></p>
+    </div>
+  </div>
 </div>
-
 {% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,8 +1,20 @@
+{% extends "adventure/views/templates/layout.html" %}
 
-{% extends "adventure/views/templates/base.html" %}
+{% block page_head %}
+<h1>About</h1>
+{% endblock %}
+
+{% block page_meta %}{% endblock %}
 
 {% block content %}
-<h1>About</h1>
-
-<p>A simple Choose Your Own Adventure Engine.</p>
+<div class="post">
+  <div class="post_inner">
+    <div class="the_post format-text">
+      <p>Adventure is a very simple web-based story engine.  It is a toy project
+        <a href="http://mikejanger.net">I</a> created to explore various
+        <a href="http://clojure.org">Clojure</a> web frameworks, starting with
+        <a href="http://www.luminusweb.net">Luminus</a>. I hope you enjoy it.</p>
+    </div>
+  </div>
+</div>
 {% endblock %}

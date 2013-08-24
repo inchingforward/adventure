@@ -1,16 +1,38 @@
-{% extends "adventure/views/templates/base.html" %}
+{% extends "adventure/views/templates/layout.html" %}
+
+{% block page_head %}
+{% for scene in adventure.scene %}
+<h1>{{ scene.title }}</h1>
+{% endfor %}
+{% endblock %}
+
+{% block page_meta %}{% endblock %}
 
 {% block content %}
+{% for scene in adventure.scene %}
 
-<div id="scene">
-<h1>{{ scene.title }}</h1>
+<div class="post">
+  <div class="post_inner">
+    <div class="the_post format-text">
+      {{ scene.body|markdown }}
 
-{{ scene.body|markdown }}
-
-{% for nav in scene.scene_nav %}
-  <p><a href="/adventure/{{ scene.adventure_id }}/scene/{{ nav.next_scene_id }}">{{ nav.title }}</a></p>
-{% endfor %}
-
+      {% for nav in scene.scene_nav %}
+        <p><a href="/adventure/{{ adventure.id }}/scene/{{ nav.next_scene_id }}">{{ nav.title }}</a></p>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
+{% endfor %}
+{% endblock %}
+
+{% block footer %}
+<div class="clear"></div>
+  <div id="footer" class="footer_2">
+    <div id="footer_widgets" class="footer_widget_count2">
+      <div class="footer_widget about">
+        <p>You are reading {{ adventure.title }} by {{ adventure.author}}.</p>
+      </div>
+    </div>
+</div>
 {% endblock %}

@@ -38,3 +38,12 @@
    (select scene
      (with scene-nav)
      (where {:adventure_id adventure-id :id scene-id}))))
+
+(defn get-adventure-and-scene
+  "Gets an adventure and a specific scene within that adventure"
+  [adventure-id scene-id]
+  (first
+    (select adventure
+      (with scene
+        (where {:id scene-id}))
+      (where {:id adventure-id}))))

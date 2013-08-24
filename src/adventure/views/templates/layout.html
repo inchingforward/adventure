@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Adventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css'>
+    <link href="{{servlet-context}}/css/adventure.css" rel='stylesheet'>
+  </head>
+  <body class="single">
+    <div class="wrapper" id="pre_header">
+      <div class="container">
+        <div id="main_menu">
+          <div id="search_wrap"></div><!-- end search_wrap -->
+            <div class="menu-main-container">
+              <ul class="menu" id="menu-main-menu">
+                <li><a href="/">Adventures</a></li>
+              </ul>
+            </div>
+          </div><!-- end main_menu -->
+          <div id="socnets">
+            <div id="socnet_link"></div>
+              <div id="socnet_icons">
+                <a class="socnet_github" href="http://github.com/inchingforward/adventure">
+                  <img src="http://static.tumblr.com/qmnuyxj/VIOmg4ms5/github.png" alt="Github" />
+                </a>
+            </div><!--end socnet_icons -->
+          </div><!-- end socnets -->
+          <div class="clear"></div>
+        </div><!-- end pre_header container -->
+      </div><!-- end pre_header -->
+
+      <div class="wrapper" id="header">
+        <div class="container">
+          <div id="the_logo">
+            {% block page_head %}<h1><a href="/" title="Adventure">Adventure</a></h1>{% endblock %}
+            {% block page_meta %}<h6 id="slogan">Create your own path</h6>{% endblock %}
+          </div><!-- end the_logo-->
+        </div><!-- end header container -->
+      </div><!-- end header -->
+
+      <div class="wrapper" id="content">
+        <div class="container">
+
+{% block content %}Replace me!{% endblock %}
+
+
+{% block footer %}
+  <div class="clear"></div>
+    <div id="footer" class="footer_2">
+      <div id="footer_widgets" class="footer_widget_count2">
+        <div class="footer_widget about">
+          <h6 class="widgettitle about_custom">About</h6>
+          <p>Adventure is a very simple web-based story engine.  It is a toy project
+            created to explore various
+            <a href="http://clojure.org">Clojure</a> web frameworks, starting with
+            <a href="http://www.luminusweb.net">Luminus</a>. I hope you enjoy it.</p>
+        </div><!-- end about -->
+      </div>
+      <div class="clear">
+        <div id="site_info">
+          Copyright 2013 <a href="http://mikejanger.net">Mike Janger</a>
+        </div>
+      </div>
+  </div>
+{% endblock %}
+
+
+</div><!-- end content container -->
+</div><!-- end content -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/qmnuyxj/Gudmep6fx/jquery.flexslider-min.js"></script>
+<script src="http://static.tumblr.com/qmnuyxj/PTLmg821g/jquery.fitvids.js"></script>
+<script src="http://static.tumblr.com/qmnuyxj/9SKmgr0dg/twitter.min.js"></script>
+<script src="http://static.tumblr.com/qmnuyxj/ORMmoykb5/memoir-twitter-fetch.js"></script>
+<script src="http://static.tumblr.com/lw6fzwn/ayTmpzm40/jquery.mobilemenu.js"></script>
+
+<script type="text/javascript">
+  $(window).load(function() {
+  	// retina logo
+	var screenImage = $(".retina_logo");
+	var theImage = new Image();
+	theImage.src = screenImage.attr("src");
+	var imageWidth = theImage.width;
+	var imageHeight = theImage.height;
+	$('.retina_logo').css('width',imageWidth/2).css('height',imageHeight/2).fadeIn();
+    // load mobile menu
+    $('#main_menu ul.menu').mobileMenu();
+      if (!$.browser.opera) {
+        $('select.select-menu').each(function(){
+          var title = $(this).attr('title');
+          if( $('option:selected', this).val() != ''  ) title = $('option:selected',this).text();
+          $(this)
+          .css({'z-index':10,'opacity':0,'-khtml-appearance':'none'})
+          .after('<span class="select">' + title + '</span>')
+          .change(function(){
+            val = $('option:selected',this).text();
+            $(this).next().text(val);
+          })
+        });
+      };
+      // Children Flyout on Menu
+      function mainmenu(){
+        $("#main_menu ul li ul").css({display: "none"}); // Opera Fix
+        $("#main_menu ul li").hover(function(){
+          $(this).find('ul:first').css({visibility: "visible",display: "none"}).show(300);
+        },function(){
+          $(this).find('ul:first').css({visibility: "hidden"});
+        });
+      }
+      mainmenu();
+    //fitvids
+    $(".container").fitVids();
+    //slider
+    // show hide the socnets
+    $('#socnet_link').click(function(){
+      $("#socnet_icons").fadeToggle();
+    });
+    // add class to ul.menu parent div
+    $('#header ul.menu').parent().addClass('header-menu-wrap');
+    // Animates the soc nets on hover
+    $("#socnets").delegate("a", "mouseover mouseout", function(e) {
+      if (e.type == 'mouseover') {
+        $("#socnets a").not(this).dequeue().animate({opacity: "0.3"}, 200);
+      } else {
+        $("#socnets a").not(this).dequeue().animate({opacity: "1"}, 200);
+      }
+      });
+    });
+
+    {% block extra-js %}{% endblock %}
+</script>
+</body>
+</html>
