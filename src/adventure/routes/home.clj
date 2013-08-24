@@ -14,7 +14,8 @@
 
 (defn adventure-page [id]
   (layout/render "adventure.html"
-                 {:adventure (db/get-adventure (read-string id))}))
+                 {:adventure (db/get-adventure (read-string id))
+                  :analytics-id (util/env-var "ADV_ANALYTICS_ID")}))
 
 (defn scene-page [adventure-id-str scene-id-str]
   (let [adventure-id (read-string adventure-id-str)
