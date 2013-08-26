@@ -45,5 +45,7 @@
   (first
     (select adventure
       (with scene
+        (with scene-nav
+          (where {:scene_id scene-id}))
         (where {:id scene-id}))
       (where {:id adventure-id}))))

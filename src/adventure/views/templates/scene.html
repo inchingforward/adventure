@@ -16,9 +16,11 @@
     <div class="the_post format-text">
       {{ scene.body|markdown }}
 
+      <ul>
       {% for nav in scene.scene_nav %}
-        <p><a href="/adventure/{{ adventure.id }}/scene/{{ nav.next_scene_id }}">{{ nav.title }}</a></p>
+        <li><a href="/adventure/{{ adventure.id }}/scene/{{ nav.next_scene_id }}">{{ nav.title }}</a></li>
       {% endfor %}
+      </ul>
     </div>
   </div>
 </div>
